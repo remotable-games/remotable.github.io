@@ -208,6 +208,7 @@ unloaded-script {
 	overflow: hidden;
 	position: relative;
 	z-index: 2;
+	background-color: rgba(0, 0, 0, 0.4);
 }
 
 .site-main {
@@ -1282,7 +1283,7 @@ body.is-instant::after {
 
 .text-component.style-2 {
 	text-transform: uppercase;
-	color: #FF8A00;
+	color: #FFB347;
 	font-family: 'Oswald', sans-serif;
 	letter-spacing: 0.35rem;
 	width: calc(100% + 0.35rem);
@@ -1302,7 +1303,7 @@ body.is-instant::after {
 }
 
 .text-component.style-2 a:hover {
-	color: #6A00FF;
+	color: #B28BFF;
 }
 
 .text-component.style-2 span.p:nth-child(n + 2) {
@@ -1326,7 +1327,7 @@ body.is-instant::after {
 }
 
 .text-component.style-1 a:hover {
-	color: #6A00FF;
+	color: #B28BFF;
 }
 
 .text-component.style-1 a {
@@ -1350,12 +1351,12 @@ body.is-instant::after {
 }
 
 .text-component.style-3 a {
-	color: #FF8A00;
-	text-decoration: none;
+	color: #FFB347;
+	text-decoration: underline;
 }
 
 .text-component.style-3 a:hover {
-	color: #FF6B00;
+	color: #B28BFF;
 }
 
 .text-component.style-3 span.p:nth-child(n + 2) {
@@ -1376,7 +1377,7 @@ body.is-instant::after {
 }
 
 .text-component.style-4 a:hover {
-	color: #6A00FF;
+	color: #B28BFF;
 }
 
 .text-component.style-4 a {
@@ -1401,12 +1402,12 @@ body.is-instant::after {
 }
 
 .text-component.instance-17 a {
-	color: #FF8A00;
-	text-decoration: none;
+	color: #FFB347;
+	text-decoration: underline;
 }
 
 .text-component.instance-17 a:hover {
-	color: #FF6B00;
+	color: #B28BFF;
 }
 
 .text-component.instance-17 span.p:nth-child(n + 2) {
@@ -1426,12 +1427,12 @@ body.is-instant::after {
 }
 
 .text-component.instance-16 a {
-	color: #FF8A00;
-	text-decoration: none;
+	color: #FFB347;
+	text-decoration: underline;
 }
 
 .text-component.instance-16 a:hover {
-	color: #FF6B00;
+	color: #B28BFF;
 }
 
 .text-component.instance-16 span.p:nth-child(n + 2) {
@@ -2312,16 +2313,16 @@ body.is-instant::after {
 }
 
 .links-component.instance-2 > li > a {
-	color: #FF8A00;
-	text-decoration: none;
+	color: #FFB347;
+	text-decoration: underline;
 }
 
 .links-component.instance-2 > li > a:hover {
-	color: #FF6B00;
+	color: #B28BFF;
 }
 
 .links-component.instance-2 > li.n01 > a:hover {
-	color: #FF6B00;
+	color: #B28BFF;
 }
 
 .links-component.instance-1 {
@@ -2334,16 +2335,16 @@ body.is-instant::after {
 }
 
 .links-component.instance-1 > li > a {
-	color: #FF8A00;
-	text-decoration: none;
+	color: #FFB347;
+	text-decoration: underline;
 }
 
 .links-component.instance-1 > li > a:hover {
-	color: #FF6B00;
+	color: #B28BFF;
 }
 
 .links-component.instance-1 > li.n01 > a:hover {
-	color: #FF6B00;
+	color: #B28BFF;
 }
 
 @media (max-width: 1920px) {
