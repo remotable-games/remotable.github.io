@@ -12,65 +12,73 @@
 		<link href="https://fonts.googleapis.com/css2?display=swap&family=Oswald:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Open+Sans:ital,wght@0,300;0,400;1,300;1,400" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="assets/main.css" />
 		<noscript><link rel="stylesheet" href="assets/noscript.css" /></noscript>
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-58SR6161JQ"></script>
 		<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		
-		// Default all tracking to 'denied'
-		gtag('consent', 'default', {
-		'ad_storage': 'denied',
-		'ad_user_data': 'denied',
-		'ad_personalization': 'denied',
-		'analytics_storage': 'denied',
-		'wait_for_update': 500 // Gives the banner time to load
-		});
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+		  gtag('config', 'G-58SR6161JQ');
 		</script>
-		
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/silktide/consent-manager@main/silktide-consent-manager.css">
-		
-		<script src="https://cdn.jsdelivr.net/gh/silktide/consent-manager@main/silktide-consent-manager.js"></script>
-		
 		<script>
-		// Initialize the consent manager
-		window.silktideConsentManager.init({
-		consentTypes: [
-		{
-		id: 'essential',
-		label: 'Essential',
-		description: 'These are necessary for the website to function and cannot be switched off.',
-		required: true,
-		},
-		{
-		id: 'analytics',
-		label: 'Analytics',
-		description: 'These help us understand how visitors interact with the website.',
-		defaultValue: true,
-		gtag: 'analytics_storage',
-		onAccept: function() {
-		gtag('consent', 'update', {
-		analytics_storage: 'granted',
-		});
-		dataLayer.push({
-		'event': 'consent_accepted_analytics',
-		});
-		},
-		onReject: function() {
-		gtag('consent', 'update', {
-		analytics_storage: 'denied',
-		});
-		}
-		},
-		],
-		text: {
-		prompt: {
-		description: "<p>We use cookies on our site to enhance your user experience, provide personalized content, and analyze our traffic. <a href=\"https://your-website.com/cookie-policy\" target=\"_blank\">Cookie Policy.</a></p>",
-		},
-		preferences: {
-		title: "Customize your cookie preferences",
-		description: "<p>We respect your right to privacy. You can choose not to allow some types of cookies. Your cookie preferences will apply across our website.</p>",
-		}
-		}
-		});
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			
+			// Default all tracking to 'denied'
+			gtag('consent', 'default', {
+			'ad_storage': 'denied',
+			'ad_user_data': 'denied',
+			'ad_personalization': 'denied',
+			'analytics_storage': 'denied',
+			'wait_for_update': 500 // Gives the banner time to load
+			});
+			</script>
+			
+			<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/silktide/consent-manager@main/silktide-consent-manager.css">
+			
+			<script src="https://cdn.jsdelivr.net/gh/silktide/consent-manager@main/silktide-consent-manager.js"></script>
+			
+			<script>
+			// Initialize the consent manager
+			window.silktideConsentManager.init({
+			consentTypes: [
+			{
+			id: 'essential',
+			label: 'Essential',
+			description: 'These are necessary for the website to function and cannot be switched off.',
+			required: true,
+			},
+			{
+			id: 'analytics',
+			label: 'Analytics',
+			description: 'These help us understand how visitors interact with the website.',
+			defaultValue: true,
+			gtag: 'analytics_storage',
+			onAccept: function() {
+			gtag('consent', 'update', {
+			analytics_storage: 'granted',
+			});
+			dataLayer.push({
+			'event': 'consent_accepted_analytics',
+			});
+			},
+			onReject: function() {
+			gtag('consent', 'update', {
+			analytics_storage: 'denied',
+			});
+			}
+			},
+			],
+			text: {
+			prompt: {
+			description: "<p>We use cookies on our site to enhance your user experience, provide personalized content, and analyze our traffic. <a href=\"https://your-website.com/cookie-policy\" target=\"_blank\">Cookie Policy.</a></p>",
+			},
+			preferences: {
+			title: "Customize your cookie preferences",
+			description: "<p>We respect your right to privacy. You can choose not to allow some types of cookies. Your cookie preferences will apply across our website.</p>",
+			}
+			}
+			});
 		</script>
 	</head>
 	<body class="is-loading">
