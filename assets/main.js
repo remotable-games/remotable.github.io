@@ -3089,9 +3089,10 @@
 		(function() {
 		
 			var $bg = document.createElement('div');
-				$bg.className = 'site-bg';
-				$body.insertBefore($bg, $body.firstChild);
-		
+			$bg.className = 'site-bg';
+			$bg.setAttribute('aria-hidden', 'true');
+			$bg.setAttribute('role', 'none');
+			$body.insertBefore($bg, $body.firstChild);		
 			new videoBackground('siteBg', {
 				target: '.site-bg',
 				src: 'assets/videos/bg.mp4',
@@ -3115,5 +3116,20 @@
 	
 	// Run ready handlers.
 		ready.run();
+
+	// Silktide banner landmark fix.
+		(function() {
+			const observer = new MutationObserver((mutations) => {
+				mutations.forEach((mutation) => {
+					mutation.addedNodes.forEach((node) => {
+						if (node.id === 'stcm-wrapper') {
+							node.setAttribute('role', 'complementary');
+							node.setAttribute('aria-label', 'Cookie Consent');
+						}
+					});
+				});
+			});
+			observer.observe(document.body, { childList: true });
+		})();
 
 })();
