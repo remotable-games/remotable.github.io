@@ -385,9 +385,10 @@
 				var modalMessage = document.getElementById('form-modal-message');
 				var closeBtn = document.getElementById('form-modal-close');
 
-				function showModal(title, message) {
+				function showModal(title, message, isError) {
 					modalTitle.textContent = title;
 					modalMessage.textContent = message;
+					modalTitle.style.color = isError ? '#ff4b4b' : '#ffa33b';
 					modal.style.display = 'flex';
 				}
 
@@ -414,12 +415,12 @@
 						body: new FormData(form),
 						mode: 'no-cors'
 					}).then(function() {
-						showModal('Success!', 'Thank you for your message! We will get back to you soon.');
+						showModal('Success!', 'Thank you for your message! We will get back to you soon.', false);
 						form.reset();
 						button.disabled = false;
 						button.textContent = originalText;
 					}).catch(function(error) {
-						showModal('Error', 'Oops! There was an error sending your message. Please try again later.');
+						showModal('Error', 'Oops! There was an error sending your message. Please try again later.', true);
 						button.disabled = false;
 						button.textContent = originalText;
 					});
