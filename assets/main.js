@@ -78,6 +78,34 @@
         });
     }
 
+    const newsletterForm = document.getElementById('newsletter-form');
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const form = e.target;
+            const button = form.querySelector('button[type="submit"]');
+            const originalText = button.textContent;
+            
+            button.disabled = true;
+            button.textContent = 'Subscribing...';
+
+            fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                mode: 'no-cors'
+            }).then(() => {
+                showModal('Thank you!', 'You have successfully joined our subscriber list.', false);
+                form.reset();
+                button.disabled = false;
+                button.textContent = originalText;
+            }).catch(() => {
+                showModal('Error', 'Oops! There was an error joining our list. Please try again later.', true);
+                button.disabled = false;
+                button.textContent = originalText;
+            });
+        });
+    }
+
     // Hash change handling (for Privacy section)
     function handleHashChange() {
         const hash = window.location.hash;
