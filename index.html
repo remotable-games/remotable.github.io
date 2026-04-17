@@ -34,7 +34,7 @@
 			<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/silktide/consent-manager@main/silktide-consent-manager.css">
 			
 			<script src="https://cdn.jsdelivr.net/gh/silktide/consent-manager@main/silktide-consent-manager.js"></script>
-			
+
 			<script>
 			// Initialize the consent manager
 			window.silktideConsentManager.init({
@@ -76,9 +76,17 @@
 			}
 			}
 			});
-		</script>
-		<style>
-			/* Custom Modal Styles */
+			</script>
+			<!-- MailerLite Universal -->
+			<script>
+				(function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+				.push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+				n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+				(window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+				ml('account', '964062');
+			</script>
+			<!-- End MailerLite Universal -->
+			<style>			/* Custom Modal Styles */
 			#form-modal {
 				display: none;
 				position: fixed;
@@ -232,15 +240,17 @@
 									<p id="text07" class="text-component instance-7 style-2">stay in touch</p>
 									<h2 id="text08" class="text-component instance-8 style-4">Subscribe to our newsletter</h2>
 									<p id="text06" class="text-component instance-6 style-3">We are currently working on bringing our newest game &quot;Bloodshed&quot; to Kickstarter. If you&#39;d like to get notified about the launch of the Kickstarter, as well as news about our future game launches subscribe below!</p>
-									<form id="form02" method="post" action="#" class="form-component instance-2">
+									<form id="form02" method="post" action="https://assets.mailerlite.com/jsonp/964062/forms/183789331506267630/subscribe" class="form-component instance-2 ml-block-form">
 										<div class="inner">
 											<div class="field">
-												<input type="email" name="email" id="form02-email" placeholder="Email" maxlength="128" aria-label="Email address for newsletter" autocomplete="email" required />
+												<input type="email" name="fields[email]" id="form02-email" placeholder="Email" maxlength="128" aria-label="Email address for newsletter" autocomplete="email" required />
 											</div>
 											<div class="actions">
 												<button type="submit">Submit</button>
 											</div>
 										</div>
+										<input type="hidden" name="ml-submit" value="1" />
+										<input type="hidden" name="anticsrf" value="true" />
 										<input type="hidden" name="id" value="form02" />
 									</form>
 								</div>
@@ -421,6 +431,32 @@
 						button.textContent = originalText;
 					}).catch(function(error) {
 						showModal('Error', 'Oops! There was an error sending your message. Please try again later.', true);
+						button.disabled = false;
+						button.textContent = originalText;
+					});
+
+					e.preventDefault();
+				});
+
+				document.getElementById('form02').addEventListener('submit', function(e) {
+					var form = e.target;
+					var button = form.querySelector('button[type="submit"]');
+					var originalText = button.textContent;
+					
+					button.disabled = true;
+					button.textContent = 'Subscribing...';
+
+					fetch(form.action, {
+						method: 'POST',
+						body: new FormData(form),
+						mode: 'no-cors'
+					}).then(function() {
+						showModal('Thank you!', 'You have successfully joined our subscriber list.', false);
+						form.reset();
+						button.disabled = false;
+						button.textContent = originalText;
+					}).catch(function(error) {
+						showModal('Error', 'Oops! There was an error joining our list. Please try again later.', true);
 						button.disabled = false;
 						button.textContent = originalText;
 					});
