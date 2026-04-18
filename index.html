@@ -60,11 +60,22 @@
 			});
 			},
 			onReject: function() {
-			gtag('consent', 'update', {
-			analytics_storage: 'denied',
-			});
-			}
-			},
+				gtag('consent', 'update', {
+					analytics_storage: 'denied',
+				});
+
+				// Force delete existing Google Analytics cookies
+				var cookies = document.cookie.split("; ");
+				for (var i = 0; i < cookies.length; i++) {
+					var cookie = cookies[i];
+					var eqPos = cookie.indexOf("=");
+					var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+					if (name.indexOf('_ga') === 0 || name.indexOf('_gid') === 0) {
+						document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=" + window.location.hostname;
+						document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=." + window.location.hostname.replace(/^www\./, "");
+					}
+				}
+			}			},
 			],
 			text: {
 			prompt: {
